@@ -1,0 +1,141 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+    margin: 0;
+}
+body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+}
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+/* 6. Inherit fonts for form controls */
+input, button, textarea, select {
+    font: inherit;
+}
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+/* 8. Improve line wrapping */
+p {
+    text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+/* 9. Create a root stacking context */
+#root, #__next {
+    isolation: isolate;
+}
+
+
+
+/* Main styling */
+/* COLORS: 394867 212A3E 9BA4B5 F1F6F9 */
+:root {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #F1F6F9;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+nav {
+    background-color: #212A3E;
+    color: #F1F6F9;
+    height: 80px;
+}
+
+#title {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#content {
+    flex-grow: 1;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 300px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+
+    background-color: #F1F6F9;
+    padding: 20px;
+    gap: 20px;  
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.section-header {
+    text-align: center;
+    font-size: 27px;
+    font-weight: 800;
+    padding: 0 10px;
+}
+
+/* Task design */
+.task {
+    padding: 10px 10px 10px 15px;
+    background-color: #394867;
+    color: #F1F6F9;
+    border-radius: 5px;
+    font-weight: 600;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.main-detail {
+    display: flex;
+    gap: 10px;
+    
+}
+
+.check-storage {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+}
+
+.check {
+    margin-top: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: #212A3E solid 2px;
+    background-color: #F1F6F9;
+    
+    opacity: 50%;
+}
+
+.check:hover {
+    opacity: 75%;
+}
+
+.check:active {
+    background-color: #212A3E;
+    opacity: 100%;
+}
+
+.description {
+    font-weight: 400;
+    font-size: 12px;
+}
