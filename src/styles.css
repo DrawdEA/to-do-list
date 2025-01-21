@@ -93,13 +93,14 @@ nav {
 /* Task design */
 .task {
     padding: 10px 10px 10px 15px;
-    background-color: #394867;
+    background-color: #212A3E;
     color: #F1F6F9;
-    border-radius: 5px;
+    border-radius: 10px;
     font-weight: 600;
 
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 .main-detail {
@@ -120,7 +121,7 @@ nav {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: #212A3E solid 2px;
+    border: #394867 solid 3px;
     background-color: #F1F6F9;
     
     opacity: 50%;
@@ -131,11 +132,108 @@ nav {
 }
 
 .check:active {
-    background-color: #212A3E;
+    background-color: #394867;
     opacity: 100%;
 }
 
 .description {
     font-weight: 400;
     font-size: 12px;
+}
+
+.view {
+    background-color: #394867;
+    border: none;
+    color: #F1F6F9;
+    border-radius: 5px;
+}
+
+.view:hover {
+    color: #394867;
+    background-color: #F1F6F9;
+}
+
+.miscs {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-top: 15px;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+
+.due, .priority {
+    background-color: #394867;
+    border-radius: 5px;
+    padding: 1px 5px;
+}
+
+.add-task, .add-section {
+    padding: 10px;
+    border: #212A3E solid 2px;
+    background-color: #F1F6F9;
+    color: #212A3E;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.add-task:hover, .add-section:hover {
+    background-color: #212A3E;
+    color: #F1F6F9;
+}
+
+.add-section {
+    padding: 5px 10px;
+    height: 40px;
+}
+
+/* Dialog styling */
+dialog {
+    padding: 10px;
+    border: #212A3E solid 2px;
+    background-color: #F1F6F9;
+    color: #212A3E;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+
+    /* Classic way to center */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+dialog::backdrop {
+    background-color: black;
+    opacity: 0.8;
+}
+
+dialog button {
+    background-color: #F1F6F9;
+    border: 2px solid #212A3E;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+dialog button:hover {
+    background-color: #212A3E;
+    color: #F1F6F9;
+}
+
+dialog p {
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    gap: 5px;
 }

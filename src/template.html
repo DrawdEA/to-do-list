@@ -13,24 +13,44 @@
         <div id="title">DRAWDE'S TO-DO LIST</div>
     </nav>
     <div id="content">
-        <div class="section">
-            <h3 class="section-header">GENERAL</h3>
-            <div class="task">
-                <div class="main-detail">
-                    <div class="check-storage">
-                        <button class="check"></button>
-                    </div>
-                    
-                    <div class="title">
-                        <h3 class="title">Do your chores</h3>
-                        <p class="description">
-                            Taking care of dishes, doing the laundry, and picking up bad stuff.
-                        </p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
+    <dialog id="create-task">
+        <p>ADD TASK</p>
+        <form method="dialog" id="task-form">
+            <div class="input-fields">
+                <label for="title">
+                    Title:
+                    <input type="text" id="section-name">
+                </label>
+                <label for="description">
+                    Description:
+                    <input type="text" id="description">
+                </label>
+                <label for="date">
+                    Deadline:
+                    <input type="date" id="date">
+                </label>
+                <label for="priority">
+                    Priority:
+                    <input type="number" id="priority">
+                </label>
+                <input type="hidden" id="section-index">
+            </div>
+          <button>OK</button>
+        </form>
+    </dialog>
+    <dialog id="create-section">
+        <p>ADD SECTION</p>
+        <form method="dialog" id="section-form">
+            <div class="input-fields">
+                <label for="name">
+                    Section Name:
+                    <input type="text" id="name">
+                </label>
+            </div>
+          <button>OK</button>
+        </form>
+    </dialog>
 </body>
 </html>
