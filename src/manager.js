@@ -6,13 +6,13 @@ let manager = (function() {
     const createSection = document.querySelector("#create-section");
 
     const taskForm = document.querySelector("#task-form");
-
     const sectionForm = document.querySelector("#section-form");
+
 
 
     let sections = [];
 
-    function displayTask(section) {
+    function displayTask(section, taskName, taskDescription, taskDate, taskPriority) {
         // Create the task container div.
         const task = document.createElement('div');
         task.classList.add('task');
@@ -33,10 +33,10 @@ let manager = (function() {
         title.classList.add('title');
         const taskTitle = document.createElement('h3');
         taskTitle.classList.add('title');
-        taskTitle.textContent = 'Do your chores'; // The task title.
+        taskTitle.textContent = taskName; // The task title.
         const description = document.createElement('p');
         description.classList.add('description');
-        description.textContent = 'Taking care of dishes, doing the laundry, and picking up bad stuff.'; // The description.
+        description.textContent = taskDescription; // The description.
     
         // Create the misc buttons and information.
         const miscs = document.createElement('div');
@@ -46,10 +46,10 @@ let manager = (function() {
         viewButton.textContent = 'View'; // The view button.
         const due = document.createElement('div');
         due.classList.add('due');
-        due.textContent = 'Due on 15/15/2023'; // The due date.
+        due.textContent = `Due on ${taskDate}`; // The due date.
         const priority = document.createElement('div');
         priority.classList.add('priority');
-        priority.textContent = 'Priority 1'; // The priority level.
+        priority.textContent = `Priority ${taskPriority}`; // The priority level.
     
         // Append the components to their respective parents
         miscs.appendChild(viewButton);
@@ -91,8 +91,15 @@ let manager = (function() {
             let section = displaySection(sections[i].name);
 
             // Loop through tasks.
-            for (let i = 0; i < sections[i].tasks.length; i++) {
-                displayTask(section, sections[i]);
+            for (let j = 0; j < sections[i].tasks.length; j++) {
+                const taskValues = sections[i].tasks[j];
+                displayTask(
+                    section, 
+                    taskValues.title, 
+                    taskValues.description, 
+                    taskValues.dueDate, 
+                    taskValues.priority
+                );
             }
 
             const taskButton = document.createElement('button');
@@ -106,6 +113,9 @@ let manager = (function() {
                 } else {
                     createTask.showModal();
                 }
+
+                // Set hidden value to the index of the section.
+                taskForm.index.value = i;
             })
 
             section.appendChild(taskButton);
@@ -132,6 +142,7 @@ let manager = (function() {
         refreshDisplay();
     }
 
+    // Handles opening and closing the dialogs.
     createTask.addEventListener("click", (event) => {
         if (createTask.open && !createTask.contains(event.target)) {
             createTask.close();
@@ -144,8 +155,14 @@ let manager = (function() {
         }
     })
 
+    // Handling form submissions for both creating a task and section.
     taskForm.addEventListener("submit", () => {
-        
+        sections[taskForm.index.value].addTask(
+            taskForm.name.value, 
+            taskForm.description.value, 
+            taskForm.date.value, 
+            taskForm.priority.value
+        )
         refreshDisplay();
         taskForm.reset();
     })

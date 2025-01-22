@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 class task {
     #title;
     #description;
@@ -7,7 +9,7 @@ class task {
     constructor(title, description, dueDate, priority) {
         this.#title = title;
         this.#description = description;
-        this.#dueDate = dueDate;
+        this.#dueDate = format(dueDate, "MM-dd-yyyy"); // Format date to a string
         this.#priority = priority;
     }
 
@@ -18,7 +20,7 @@ class task {
     set description(newDescription) { this.#description = newDescription; };
 
     get dueDate() { return this.#dueDate; };
-    set dueDate(newDue) { this.#dueDate = newDue; };
+    set dueDate(newDue) { this.#dueDate = format(newDue, "MM-dd-yyyy"); };
 
     get priority() { return this.#priority; };
     set priority(newPriority) { this.#priority = newPriority; };
