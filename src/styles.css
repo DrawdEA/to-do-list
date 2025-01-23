@@ -88,6 +88,18 @@ nav {
     font-size: 27px;
     font-weight: 800;
     padding: 0 10px;
+    position: relative;
+}
+
+.section-header button {
+    position: absolute;
+    top: 50%; /* Vertically center */
+    right: 0; /* Align to the right edge */
+    transform: translateY(-50%); /* Adjust for height to ensure perfect centering */
+    font-size: 15px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
 /* Task design */
@@ -170,7 +182,7 @@ nav {
     padding: 1px 5px;
 }
 
-.add-task, .add-section {
+.add-task, .add-section, .section-header button {
     padding: 10px;
     border: #212A3E solid 2px;
     background-color: #F1F6F9;
@@ -180,7 +192,7 @@ nav {
     font-weight: 600;
 }
 
-.add-task:hover, .add-section:hover {
+.add-task:hover, .add-section:hover, .section-header button:hover {
     background-color: #212A3E;
     color: #F1F6F9;
 }
@@ -188,6 +200,12 @@ nav {
 .add-section {
     padding: 5px 10px;
     height: 40px;
+}
+
+input#description {
+    height: 50px;
+    font-size: 12px;
+    font-weight: 400;
 }
 
 /* Dialog styling */

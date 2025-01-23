@@ -21,7 +21,7 @@
             <div class="input-fields">
                 <label for="name">
                     Title:
-                    <input type="text" id="name">
+                    <input type="text" id="name" minlength="1" required>
                 </label>
                 <label for="description">
                     Description:
@@ -29,11 +29,11 @@
                 </label>
                 <label for="date">
                     Deadline:
-                    <input type="date" id="date">
+                    <input type="date" id="date" value="2025-06-11" required>
                 </label>
                 <label for="priority">
                     Priority:
-                    <input type="number" id="priority">
+                    <input type="number" id="priority" min="1" max="3" required>
                 </label>
                 <input type="hidden" id="index">
             </div>
@@ -46,7 +46,7 @@
             <div class="input-fields">
                 <label for="name">
                     Section Name:
-                    <input type="text" id="name">
+                    <input type="text" id="name" minlength="1" required> 
                 </label>
             </div>
           <button>OK</button>
